@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+:root {
+  --display: 'Exo 2', 'Segoe UI', sans-serif;
+  --body: 'Nunito Sans', 'Segoe UI', sans-serif;
+  --text: #f7fbff;
+  --muted: rgba(226, 239, 255, 0.72);
+  --glass: rgba(9, 16, 40, 0.56);
+  --glass-line: rgba(255, 255, 255, 0.18);
+  --cyan: #6fe7ff;
+  --mint: #8dffca;
+  --amber: #ffd37a;
+  --rose: #ff8ec7;
+  --radius: 8px;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  font-family: var(--body);
+  color: var(--text);
+  background: #050713;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(141, 255, 202, 0.78);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
