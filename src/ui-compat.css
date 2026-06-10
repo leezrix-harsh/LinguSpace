@@ -1,0 +1,203 @@
+.category-level-page .lesson-card-grid,
+.category-level-page .lesson-material-library,
+.category-level-page .quick-information-section {
+  width: min(920px, 94%);
+  margin-inline: auto;
+}
+
+.category-level-page .lesson-card-grid,
+.category-level-page .lesson-material-library,
+.category-level-page .quick-information-grid {
+  gap: 22px;
+  padding: 18px 18px 26px;
+  border: 1px solid rgba(186, 233, 255, 0.38);
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+  background:
+    radial-gradient(circle at 50% 105%, rgba(118, 215, 255, 0.34), transparent 38%),
+    rgba(17, 64, 99, 0.34);
+  box-shadow:
+    inset 0 0 34px rgba(150, 226, 255, 0.22),
+    0 18px 46px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.category-level-page .lesson-material-library,
+.category-level-page .quick-information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.category-level-page .compact-library {
+  margin-top: 18px;
+}
+
+.category-level-page .lesson-card,
+.category-level-page .lesson-material-card,
+.category-level-page .quick-information-card,
+.category-level-page .lesson-empty-materials {
+  overflow: hidden;
+  border: 1px solid rgba(201, 234, 255, 0.42);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(82, 136, 169, 0.48), rgba(7, 28, 57, 0.78));
+  box-shadow:
+    inset 0 0 18px rgba(164, 226, 255, 0.22),
+    0 12px 30px rgba(0, 0, 0, 0.38);
+}
+
+.category-level-page .lesson-material-card,
+.category-level-page .quick-information-card {
+  height: auto;
+  min-height: 320px;
+  display: grid;
+  grid-template-rows: 160px minmax(160px, auto);
+}
+
+.category-level-page .lesson-material-preview,
+.category-level-page .quick-information-preview {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 22% 20%, rgba(255, 255, 255, 0.82), transparent 24%),
+    linear-gradient(135deg, rgba(111, 231, 255, 0.95), rgba(255, 142, 199, 0.74));
+}
+
+.category-level-page .lesson-material-preview img,
+.category-level-page .lesson-material-preview video,
+.category-level-page .quick-information-preview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.category-level-page .lesson-material-body,
+.category-level-page .quick-information-body {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.category-level-page .lesson-material-body h3,
+.category-level-page .quick-information-body h3 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 1.02rem/1.18 var(--display);
+  overflow-wrap: anywhere;
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.category-level-page .quick-information-body p {
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.68);
+  font: 900 0.68rem/1 var(--body);
+  text-transform: uppercase;
+}
+
+.category-level-page .lesson-material-actions,
+.category-level-page .quick-information-body button {
+  margin-top: auto;
+}
+
+.category-level-page .lesson-material-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+.category-level-page .lesson-material-actions a,
+.category-level-page .lesson-material-actions button,
+.category-level-page .quick-information-body button {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  font: 900 0.72rem/1 var(--body);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.category-level-page .lesson-material-actions a:hover,
+.category-level-page .lesson-material-actions button:hover,
+.category-level-page .quick-information-body button:hover {
+  color: #061220;
+  background: linear-gradient(135deg, var(--cyan), var(--mint));
+}
+
+@media (max-width: 980px) {
+  .category-level-page .lesson-card-grid,
+  .category-level-page .lesson-test-grid,
+  .category-level-page .lesson-material-library,
+  .category-level-page .quick-information-section {
+    width: min(620px, 94%);
+  }
+
+  .category-level-page .lesson-card-grid,
+  .category-level-page .lesson-test-grid,
+  .category-level-page .lesson-material-library,
+  .category-level-page .quick-information-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .category-level-page .lesson-card-grid,
+  .category-level-page .lesson-test-grid,
+  .category-level-page .lesson-material-library,
+  .category-level-page .quick-information-section {
+    width: calc(100% - 22px);
+  }
+
+  .category-level-page .lesson-card-grid,
+  .category-level-page .lesson-test-grid,
+  .category-level-page .lesson-material-library,
+  .category-level-page .quick-information-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 11px 9px 18px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .category-level-page .lesson-material-card,
+  .category-level-page .quick-information-card {
+    height: auto;
+    min-height: 270px;
+    grid-template-rows: 135px minmax(170px, auto);
+  }
+
+  .category-level-page .lesson-material-body,
+  .category-level-page .quick-information-body {
+    padding: 12px;
+  }
+
+  .category-level-page .lesson-material-body h3,
+  .category-level-page .quick-information-body h3 {
+    font-size: 0.78rem;
+  }
+
+  .category-level-page .lesson-material-actions a,
+  .category-level-page .lesson-material-actions button,
+  .category-level-page .quick-information-body button {
+    min-height: 26px;
+    padding-inline: 9px;
+    font-size: 0.58rem;
+  }
+}

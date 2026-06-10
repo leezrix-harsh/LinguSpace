@@ -5,7 +5,6 @@ export const categorySlugs = {
   Reading: 'reading',
   Writing: 'writing',
   Speaking: 'speaking',
-  Exams: 'exams',
 }
 
 const angelicaPortrait = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80'
@@ -59,24 +58,15 @@ export const categoryTeachers = {
     message:
       'Speaking is built through brave practice. These lessons will help you share ideas, answer questions, and sound more natural in English.',
   },
-  Exams: {
-    name: 'Mrs. Angelica Lusy, M.Ed.',
-    role: 'Exam Preparation Specialist',
-    image: angelicaPortrait,
-    greeting: 'Hello, Students!',
-    message:
-      'Prepare calmly and consistently. These exam lessons help you review skills, understand question types, and practice with confidence.',
-  },
 }
 
 export const categoryImages = {
-  Grammar: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80',
-  Vocabulary: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80',
-  Listening: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80',
-  Reading: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80',
-  Writing: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80',
-  Speaking: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80',
-  Exams: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80',
+  Grammar: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=600&q=80',
+  Vocabulary: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80',
+  Listening: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=600&q=80',
+  Reading: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80',
+  Writing: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=600&q=80',
+  Speaking: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80',
 }
 
 export const levelLabels = [
@@ -86,6 +76,30 @@ export const levelLabels = [
   { cefr: 'B2', title: 'Upper Intermediate' },
   { cefr: 'C1', title: 'Pre-Advanced' },
   { cefr: 'C2', title: 'Advanced' },
+]
+
+export const grammarLevelLabels = [
+  {
+    cefr: 'A1',
+    title: 'Beginner',
+    description: '1. Beginner Grammar Materials',
+    folder: 'Grammar/1. Beginner',
+    focus: 'Pronouns, To Be, Simple Past, and Simple Present',
+  },
+  {
+    cefr: 'B1',
+    title: 'Intermediate',
+    description: '2. Intermediate Grammar Materials',
+    folder: 'Grammar/2. Intermediate',
+    focus: 'Present Perfect, Past Perfect, and Past Continuous',
+  },
+  {
+    cefr: 'C1',
+    title: 'Advance',
+    description: '3. Advance Grammar Materials',
+    folder: 'Grammar/3. Advance',
+    focus: 'Advanced Linkers, Conjunctions, Wish, and If Only',
+  },
 ]
 
 export const lessonTopics = [
@@ -111,15 +125,34 @@ export const lessonTopics = [
   },
 ]
 
-export const buildCategoryLevelCards = (category) =>
-  levelLabels.map((level) => ({
+export const buildCategoryLevelCards = (category) => {
+  const labels = category === 'Grammar' ? grammarLevelLabels : levelLabels
+
+  return labels.map((level) => ({
     cefr: level.cefr,
-    title: `${level.title} Lab`,
-    description: `${level.cefr} ${category} Test`,
+    title: category === 'Grammar' ? `${level.title} Grammar` : `${level.title} Lab`,
+    description: level.description ?? `${level.cefr} ${category} Test`,
+    meta: level.focus,
+    folder: level.folder,
     image: categoryImages[category],
   }))
+}
+
+const getCategoryLevelDescription = (category, levelCode) =>
+  category === 'Grammar'
+    ? grammarLevelLabels.find((level) => level.cefr === levelCode)?.description
+    : null
 
 export const buildCategoryLevelPage = (category, levelCode) => ({
-  title: `${levelCode} ${category} Test`,
+  title: getCategoryLevelDescription(category, levelCode) ?? `${levelCode} ${category} Test`,
+  displayLevel: category === 'Grammar'
+    ? grammarLevelLabels.find((level) => level.cefr === levelCode)?.title
+    : levelCode,
+  folder: category === 'Grammar'
+    ? grammarLevelLabels.find((level) => level.cefr === levelCode)?.folder
+    : `${category}/${levelCode}`,
+  focus: category === 'Grammar'
+    ? grammarLevelLabels.find((level) => level.cefr === levelCode)?.focus
+    : null,
   lessons: lessonTopics,
 })

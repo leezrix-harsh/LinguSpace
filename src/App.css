@@ -135,7 +135,7 @@
   padding: 7px 12px;
   border-radius: 999px;
   color: #83f7ff;
-  font: 900 1rem/1 var(--display);
+  font: 900 0.92rem/1 var(--display);
   background: rgba(19, 56, 83, 0.5);
 }
 
@@ -205,6 +205,16 @@
   max-width: 560px;
 }
 
+.figma-hero-brand {
+  width: max-content;
+  margin: -26px 0 10px;
+  color: #83f7ff;
+  font: 900 clamp(2.25rem, 4.4vw, 3.25rem)/1 var(--display);
+  text-shadow:
+    0 3px 0 rgba(20, 79, 100, 0.78),
+    0 0 16px rgba(111, 231, 255, 0.82);
+}
+
 .figma-eyebrow {
   margin: 0 0 10px;
   font: 800 0.78rem/1 var(--body);
@@ -219,7 +229,7 @@
   text-shadow: 0 4px 0 rgba(10, 42, 80, 0.35);
 }
 
-.figma-hero-copy p:not(.figma-eyebrow) {
+.figma-hero-copy p:not(.figma-eyebrow):not(.figma-hero-brand) {
   max-width: 680px;
   margin: 16px 0 0;
   color: #ffffff;
@@ -276,6 +286,10 @@
 .why-glass {
   width: min(760px, 84%);
   min-height: 236px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 34px 48px 28px;
   border: 1px solid rgba(235, 247, 255, 0.72);
   border-radius: 16px;
   background:
@@ -285,6 +299,38 @@
     inset 0 1px 16px rgba(255, 255, 255, 0.36),
     0 18px 48px rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(10px) saturate(1.15);
+}
+
+.why-glass p {
+  max-width: 680px;
+  margin: 0;
+  color: #ffffff;
+  font: italic 800 clamp(0.9rem, 1.65vw, 1.18rem)/1.48 var(--body);
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(3, 10, 18, 0.78);
+}
+
+.explore-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.explore-pills a {
+  min-width: 78px;
+  min-height: 22px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  border-radius: 999px;
+  color: #061220;
+  background: rgba(255, 255, 255, 0.58);
+  font: 900 0.62rem/1 var(--body);
+  text-decoration: none;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.12);
 }
 
 .mastery-section {
@@ -326,7 +372,9 @@
   border: 1px solid rgba(201, 234, 255, 0.42);
   border-radius: 14px;
   background:
-    linear-gradient(180deg, rgba(82, 136, 169, 0.48), rgba(7, 28, 57, 0.78));
+    var(--lesson-card-background, linear-gradient(180deg, rgba(82, 136, 169, 0.48), rgba(7, 28, 57, 0.78)));
+  background-size: cover;
+  background-position: center;
   box-shadow:
     inset 0 0 18px rgba(164, 226, 255, 0.22),
     0 12px 30px rgba(0, 0, 0, 0.38);
@@ -365,6 +413,303 @@
   background: #ffffff;
   font: 900 0.68rem/1 var(--body);
   text-decoration: none;
+}
+
+.student-review-section {
+  width: min(920px, 94%);
+  margin: 26px auto 0;
+  padding: 18px;
+  border: 1px solid rgba(186, 233, 255, 0.38);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(255, 211, 122, 0.28), transparent 26%),
+    radial-gradient(circle at 88% 12%, rgba(141, 255, 202, 0.22), transparent 24%),
+    rgba(17, 64, 99, 0.34);
+  box-shadow:
+    inset 0 0 34px rgba(150, 226, 255, 0.22),
+    0 18px 46px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.review-heading,
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.review-card-top {
+  min-height: 26px;
+}
+
+.review-heading h2 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 clamp(1.34rem, 3.1vw, 2.25rem)/1 var(--display);
+  text-shadow: 0 3px 0 rgba(24, 63, 105, 0.72);
+}
+
+.review-score {
+  min-width: 154px;
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+  color: rgba(255, 255, 255, 0.78);
+  font: 900 0.72rem/1 var(--body);
+}
+
+.review-score strong {
+  color: #ffffff;
+  font: 900 2.55rem/0.9 var(--display);
+  text-shadow: 0 0 14px rgba(255, 211, 122, 0.46);
+}
+
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.rating-stars svg,
+.rating-stars button {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.rating-stars svg.is-active,
+.rating-stars button.is-active {
+  color: var(--amber);
+}
+
+.rating-stars button {
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.34);
+  background: transparent;
+  cursor: pointer;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.rating-stars button:hover,
+.rating-stars button:focus-visible {
+  color: var(--amber);
+  transform: translateY(-1px);
+}
+
+.review-workspace {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+  align-items: start;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.review-form,
+.review-card {
+  border: 1px solid rgba(201, 234, 255, 0.32);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(82, 136, 169, 0.4), rgba(7, 28, 57, 0.68));
+  box-shadow: inset 0 0 18px rgba(164, 226, 255, 0.16);
+}
+
+.review-form {
+  display: grid;
+  gap: 13px;
+  padding: 16px;
+  min-height: 0;
+}
+
+.review-form label,
+.review-rating-field {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font: 900 0.78rem/1.2 var(--body);
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 11px 12px;
+  color: #ffffff;
+  background: rgba(4, 9, 28, 0.48);
+  font: 800 0.88rem/1.35 var(--body);
+}
+
+.review-form textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.review-form button[type='submit'] {
+  min-height: 40px;
+  border: 0;
+  border-radius: 999px;
+  color: #061220;
+  background: linear-gradient(135deg, var(--cyan), var(--mint));
+  font: 900 0.78rem/1 var(--body);
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(111, 231, 255, 0.22);
+}
+
+.review-form button[type='submit']:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.review-message {
+  margin: -2px 0 0;
+  color: rgba(141, 255, 202, 0.9);
+  font: 900 0.72rem/1.45 var(--body);
+}
+
+.review-message.is-error {
+  color: rgba(255, 142, 199, 0.94);
+}
+
+.review-orbit-field {
+  position: relative;
+  min-width: 0;
+  height: 450px;
+  max-height: 450px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  align-content: start;
+  gap: 14px;
+  padding: 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(141, 255, 202, 0.5) rgba(4, 9, 28, 0.28);
+  border: 1px solid rgba(201, 234, 255, 0.22);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.2) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 78% 22%, rgba(255, 211, 122, 0.28) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 52% 68%, rgba(141, 255, 202, 0.18) 0 1px, transparent 1.5px),
+    linear-gradient(135deg, rgba(4, 9, 28, 0.82), rgba(17, 64, 99, 0.28), rgba(4, 9, 28, 0.76));
+}
+
+.review-orbit-field::-webkit-scrollbar {
+  width: 8px;
+}
+
+.review-orbit-field::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(141, 255, 202, 0.44);
+}
+
+.review-orbit-field::-webkit-scrollbar-track {
+  background: rgba(4, 9, 28, 0.28);
+}
+
+.review-orbit-field::before {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  pointer-events: none;
+  border: 1px solid rgba(111, 231, 255, 0.12);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.review-orbit-field::after {
+  content: '';
+  position: absolute;
+  right: 12%;
+  bottom: 8%;
+  width: 140px;
+  aspect-ratio: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(141, 255, 202, 0.18), transparent 68%);
+  filter: blur(6px);
+}
+
+.review-card {
+  position: relative;
+  z-index: 1;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  animation: reviewFloat 6.5s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+  will-change: transform;
+}
+
+.review-card:nth-child(3n + 1) {
+  transform-origin: 46% 62%;
+}
+
+.review-card:nth-child(3n + 2) {
+  transform-origin: 58% 42%;
+}
+
+.review-card:nth-child(3n + 3) {
+  transform-origin: 48% 48%;
+}
+
+.review-card strong {
+  min-width: 0;
+  flex: 1;
+  color: #ffffff;
+  font: 900 clamp(0.95rem, 1.35vw, 1.08rem)/1.05 var(--display);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-card .rating-stars {
+  flex: 0 0 auto;
+  gap: 2px;
+}
+
+.review-card .rating-stars svg {
+  width: 18px;
+  height: 18px;
+  flex-basis: 18px;
+}
+
+.review-card p {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font: 800 clamp(0.76rem, 1.12vw, 0.88rem)/1.5 var(--body);
+  overflow-wrap: anywhere;
+}
+
+.review-card:hover {
+  animation-play-state: paused;
+  border-color: rgba(141, 255, 202, 0.42);
+  box-shadow:
+    inset 0 0 24px rgba(164, 226, 255, 0.18),
+    0 14px 34px rgba(0, 0, 0, 0.32);
+}
+
+@keyframes reviewFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-card {
+    animation: none !important;
+  }
 }
 
 .brand,
@@ -1372,6 +1717,11 @@
   font: 800 0.98rem/1.6 var(--body);
 }
 
+.mission-hero .mission-focus-line {
+  margin-top: 10px;
+  color: #83f7ff;
+}
+
 .lab-scan-panel,
 .mission-progress-card {
   min-height: 184px;
@@ -1647,6 +1997,19 @@
   object-fit: cover;
 }
 
+.material-player-preview .is-document-image,
+.lesson-material-preview .is-document-image {
+  padding: 12px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.material-player-preview .material-preview-video {
+  min-height: 304px;
+  object-fit: contain;
+  background: rgba(4, 9, 28, 0.82);
+}
+
 .material-player-preview audio {
   width: min(90%, 430px);
 }
@@ -1800,7 +2163,8 @@
 
 .reading-detail-hero,
 .reading-study-grid,
-.reading-question-panel {
+.reading-question-panel,
+.reading-gap-panel {
   width: min(920px, 94%);
   margin-inline: auto;
 }
@@ -1809,7 +2173,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 0.46fr);
   gap: 22px;
-  align-items: stretch;
+  align-items: center;
   margin-top: 52px;
   padding: clamp(20px, 4vw, 34px);
   border: 1px solid rgba(186, 233, 255, 0.38);
@@ -1824,9 +2188,26 @@
   backdrop-filter: blur(8px);
 }
 
+.reading-detail-hero .ghost-link {
+  margin-bottom: 18px;
+}
+
+.worksheet-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.34fr);
+  align-items: end;
+}
+
+.worksheet-progress-card {
+  min-height: 184px;
+}
+
+.reading-detail-hero .deck-label {
+  margin: 0 0 18px;
+}
+
 .reading-detail-hero h1 {
   max-width: 660px;
-  margin: 8px 0 0;
+  margin: 0;
   color: #ffffff;
   font: 900 clamp(2rem, 4.8vw, 4rem)/0.98 var(--display);
   letter-spacing: 0;
@@ -1842,7 +2223,8 @@
 
 .reading-detail-hero img {
   width: 100%;
-  min-height: 260px;
+  aspect-ratio: 1.32;
+  min-height: 0;
   border: 1px solid rgba(255, 255, 255, 0.44);
   border-radius: 10px;
   object-fit: cover;
@@ -1855,9 +2237,14 @@
   margin-top: 18px;
 }
 
+.worksheet-study-grid {
+  align-items: stretch;
+}
+
 .reading-text-panel,
 .reading-object-panel,
 .reading-question-panel,
+.reading-gap-panel,
 .reading-question-card {
   border: 1px solid rgba(201, 234, 255, 0.36);
   border-radius: 12px;
@@ -1869,15 +2256,60 @@
   backdrop-filter: blur(8px);
 }
 
-.reading-text-panel,
-.reading-object-panel {
+.reading-text-panel {
   padding: 20px;
+}
+
+.reading-text-panel,
+.reading-question-panel,
+.reading-gap-panel {
+  background:
+    linear-gradient(180deg, rgba(14, 68, 123, 0.72), rgba(7, 28, 57, 0.82)),
+    var(--exercise-panel-image),
+    linear-gradient(180deg, rgba(82, 136, 169, 0.42), rgba(7, 28, 57, 0.74));
+  background-size: cover;
+  background-position: center;
+}
+
+.reading-text-panel h2,
+.reading-question-panel h2,
+.reading-gap-panel h2 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 clamp(1.45rem, 3vw, 2.05rem)/1 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
 }
 
 .reading-text-panel p {
   margin: 18px 0 0;
   color: rgba(255, 255, 255, 0.84);
   font: 800 clamp(1rem, 1.5vw, 1.15rem)/1.75 var(--body);
+}
+
+.reading-object-panel {
+  overflow: hidden;
+}
+
+.reading-object-panel > img {
+  width: 100%;
+  aspect-ratio: 1.56;
+  display: block;
+  object-fit: cover;
+}
+
+.reading-object-card-body {
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(34, 64, 103, 0.7), rgba(7, 28, 57, 0.72)),
+    var(--exercise-panel-image);
+  background-size: cover;
+  background-position: center;
+}
+
+.reading-object-card-body h2 {
+  margin: 8px 0 0;
+  color: #ffffff;
+  font: 900 clamp(1.15rem, 2vw, 1.45rem)/1.1 var(--display);
 }
 
 .reading-object-frame {
@@ -1908,10 +2340,55 @@
   padding: 22px;
 }
 
+.reading-question-panel > p {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font: 900 0.9rem/1 var(--body);
+}
+
+.exercise-tabs {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 6px 28px;
+  border: 1px solid rgba(201, 234, 255, 0.26);
+  border-radius: 6px;
+  background: rgba(201, 224, 242, 0.26);
+  box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.14);
+}
+
+.exercise-tabs button,
+.exercise-tabs span {
+  min-width: 116px;
+  min-height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.2);
+  font: 900 0.75rem/1 var(--body);
+  cursor: pointer;
+}
+
+.exercise-tabs button.is-active,
+.exercise-tabs span.is-active {
+  color: #11335a;
+  background: #ffffff;
+}
+
+.exercise-tabs button:hover {
+  color: #061220;
+  background: linear-gradient(135deg, var(--cyan), var(--mint));
+}
+
 .reading-question-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  margin-top: 18px;
 }
 
 .reading-question-card {
@@ -1923,6 +2400,1816 @@
   margin: 0;
   color: #ffffff;
   font: 900 1.05rem/1.35 var(--display);
+}
+
+.reading-question-card .quiz-options {
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.reading-question-card .quiz-options button {
+  position: relative;
+  min-height: 44px;
+  padding: 10px 14px 10px 48px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: rgba(95, 135, 186, 0.5);
+  font: 900 0.9rem/1.25 var(--body);
+}
+
+.reading-question-card .quiz-options button::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(235, 247, 255, 0.72);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.reading-question-card .quiz-options button.is-selected::before {
+  border-color: #061220;
+  background: #061220;
+  box-shadow: inset 0 0 0 5px var(--mint);
+}
+
+.reading-gap-panel {
+  margin-top: 18px;
+  padding: 28px 34px 34px;
+}
+
+.gap-fill-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.gap-fill-list label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font: 900 clamp(1rem, 1.7vw, 1.24rem)/1.35 var(--body);
+}
+
+.gap-fill-list input {
+  width: 108px;
+  height: 34px;
+  border: 1px solid rgba(201, 234, 255, 0.7);
+  border-radius: 3px;
+  color: #ffffff;
+  background: rgba(21, 54, 100, 0.34);
+  font: 900 1rem/1 var(--body);
+  text-align: center;
+}
+
+.reading-submit-panel {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.reading-submit-panel label {
+  display: grid;
+  gap: 8px;
+  max-width: 360px;
+  color: rgba(255, 255, 255, 0.78);
+  font: 900 0.8rem/1.2 var(--body);
+}
+
+.reading-submit-panel input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(201, 234, 255, 0.7);
+  border-radius: 6px;
+  color: #ffffff;
+  background: rgba(21, 54, 100, 0.34);
+  font: 900 0.92rem/1 var(--body);
+  padding: 0 12px;
+}
+
+.checkpoint-button {
+  min-height: 28px;
+  margin-top: 28px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  color: #11335a;
+  background: #ffffff;
+  font: 900 0.76rem/1 var(--body);
+}
+
+.reading-submit-panel .checkpoint-button {
+  width: max-content;
+  min-height: 38px;
+  margin-top: 0;
+  padding-inline: 18px;
+  cursor: pointer;
+}
+
+.reading-submit-panel .checkpoint-button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.secondary-checkpoint-button {
+  margin-top: 18px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.worksheet-essay-box {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.84);
+  font: 900 0.82rem/1.2 var(--body);
+}
+
+.worksheet-essay-box textarea {
+  width: 100%;
+  min-height: 190px;
+  resize: vertical;
+  border: 1px solid rgba(201, 234, 255, 0.44);
+  border-radius: 8px;
+  padding: 14px;
+  color: #ffffff;
+  background: rgba(4, 9, 28, 0.48);
+  font: 800 0.95rem/1.55 var(--body);
+}
+
+.submission-message {
+  margin: 0;
+  color: rgba(141, 255, 202, 0.94);
+  font: 900 0.82rem/1.45 var(--body);
+}
+
+.submission-message.is-error {
+  color: rgba(255, 142, 199, 0.94);
+}
+
+.listening-detail-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+}
+
+.listening-hero-player {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(14, 68, 123, 0.36), rgba(7, 28, 57, 0.76)),
+    var(--exercise-panel-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 18px rgba(164, 226, 255, 0.18);
+}
+
+.listening-hero-player img {
+  width: 100%;
+  aspect-ratio: 1.52;
+  min-height: 0;
+  display: block;
+  object-fit: cover;
+}
+
+.listening-hero-player audio {
+  width: calc(100% - 24px);
+  margin: 12px;
+}
+
+.listening-hero-player .reading-object-card-body audio {
+  width: 100%;
+  margin: 14px 0 0;
+}
+
+.listening-worksheet-grid {
+  width: min(920px, 94%);
+  display: grid;
+  grid-template-columns: minmax(240px, 0.5fr) minmax(0, 1fr);
+  gap: 16px;
+  margin: 18px auto 0;
+}
+
+.vocabulary-worksheet-grid,
+.writing-worksheet-grid {
+  width: min(920px, 94%);
+  display: grid;
+  gap: 16px;
+  margin: 18px auto 0;
+}
+
+.vocabulary-worksheet-grid {
+  grid-template-columns: minmax(240px, 0.5fr) minmax(0, 1fr);
+}
+
+.writing-worksheet-grid {
+  grid-template-columns: minmax(260px, 0.52fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.vocabulary-focus-panel,
+.vocabulary-object-panel,
+.writing-model-panel,
+.writing-workshop-panel {
+  min-width: 0;
+}
+
+.listening-section-panel,
+.listening-check-panel,
+.listening-challenge-panel,
+.listening-true-false-card {
+  border: 1px solid rgba(201, 234, 255, 0.36);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(14, 68, 123, 0.72), rgba(7, 28, 57, 0.82)),
+    var(--exercise-panel-image),
+    linear-gradient(180deg, rgba(82, 136, 169, 0.42), rgba(7, 28, 57, 0.74));
+  background-size: cover;
+  background-position: center;
+  box-shadow:
+    inset 0 0 18px rgba(164, 226, 255, 0.18),
+    0 12px 30px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(8px);
+}
+
+.listening-section-panel {
+  min-height: 320px;
+  padding: 18px;
+}
+
+.listening-section-panel h2,
+.listening-challenge-panel h2 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 clamp(1.35rem, 2.7vw, 2rem)/1 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+}
+
+.listening-focus-list {
+  display: grid;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.listening-focus-list button,
+.listening-step-list button {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(201, 234, 255, 0.22);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(95, 135, 186, 0.34);
+  font: 900 0.82rem/1.2 var(--body);
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.listening-focus-list button:hover,
+.listening-focus-list button:focus-visible,
+.listening-step-list button:hover,
+.listening-step-list button:focus-visible {
+  border-color: rgba(141, 255, 202, 0.62);
+  transform: translateY(-1px);
+}
+
+.listening-focus-list button.is-active,
+.listening-step-list button.is-done {
+  color: #09244a;
+  background: var(--mint);
+}
+
+.listening-step-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.listening-step-list button {
+  min-height: 30px;
+  width: max-content;
+  border-radius: 999px;
+  font-size: 0.68rem;
+}
+
+.vocabulary-object-panel video {
+  width: 100%;
+  margin: 14px 0 0;
+  border: 1px solid rgba(201, 234, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(4, 9, 28, 0.5);
+}
+
+.vocabulary-match-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.vocabulary-sentence-grid,
+.writing-plan-list {
+  display: grid;
+  gap: 12px;
+}
+
+.vocabulary-sentence-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vocabulary-sentence-grid .worksheet-essay-box,
+.writing-plan-list .worksheet-essay-box {
+  margin-top: 0;
+}
+
+.vocabulary-sentence-grid textarea {
+  min-height: 130px;
+}
+
+.writing-workshop-panel {
+  width: auto;
+  margin: 0;
+}
+
+.writing-draft-box textarea {
+  min-height: 320px;
+}
+
+.writing-criteria-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.figma-writing-hero {
+  align-items: center;
+}
+
+.worksheet-hero-preview {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(232, 249, 255, 0.72);
+  border-radius: 10px;
+  background: rgba(7, 28, 57, 0.72);
+  box-shadow: inset 0 0 18px rgba(164, 226, 255, 0.18);
+}
+
+.worksheet-hero-preview img {
+  width: 100%;
+  aspect-ratio: 1.35;
+  display: block;
+  object-fit: cover;
+}
+
+.worksheet-hero-preview div {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 1px solid rgba(232, 249, 255, 0.38);
+  border-radius: 8px;
+  background: rgba(4, 16, 42, 0.74);
+  backdrop-filter: blur(10px);
+}
+
+.worksheet-hero-preview strong {
+  color: #83f7ff;
+  font: 900 1.4rem/1 var(--display);
+}
+
+.worksheet-hero-preview span {
+  color: rgba(255, 255, 255, 0.82);
+  font: 900 0.62rem/1 var(--body);
+}
+
+.writing-study-grid,
+.speaking-study-grid {
+  margin-top: 20px;
+}
+
+.grammar-study-grid {
+  margin-top: 20px;
+}
+
+.grammar-rule-panel {
+  min-height: 360px;
+}
+
+.grammar-rule-panel p {
+  max-width: 46ch;
+  font-size: clamp(1rem, 1.45vw, 1.18rem);
+}
+
+.grammar-focus-panel > img {
+  aspect-ratio: 1.55;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.grammar-focus-list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 18px;
+  padding-left: 20px;
+  color: #83f7ff;
+  font: 900 0.9rem/1.4 var(--body);
+}
+
+.grammar-worksheet-page .worksheet-task-panel,
+.grammar-worksheet-page .worksheet-submit-card,
+.grammar-worksheet-page .reading-text-panel {
+  background:
+    linear-gradient(180deg, rgba(14, 68, 123, 0.72), rgba(7, 28, 57, 0.82)),
+    var(--exercise-panel-image),
+    linear-gradient(180deg, rgba(82, 136, 169, 0.42), rgba(7, 28, 57, 0.74));
+  background-size: cover;
+  background-position: center;
+}
+
+.writing-text-version {
+  min-height: 310px;
+}
+
+.writing-text-version p {
+  font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+}
+
+.worksheet-task-panel,
+.worksheet-writing-panel,
+.worksheet-reflection-panel,
+.worksheet-submit-card {
+  margin-top: 24px;
+}
+
+.worksheet-mode-bar span {
+  min-width: 124px;
+  min-height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.14);
+  font: 900 0.72rem/1 var(--body);
+}
+
+.worksheet-mode-bar span.is-active {
+  color: #09244a;
+  background: #ffffff;
+}
+
+.worksheet-word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 14px;
+  border: 2px solid rgba(232, 249, 255, 0.4);
+  border-radius: 8px;
+  background: rgba(4, 16, 42, 0.2);
+}
+
+.worksheet-word-bank span {
+  min-height: 30px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(232, 249, 255, 0.62);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(42, 86, 136, 0.52);
+  font: 900 0.82rem/1 var(--body);
+}
+
+.worksheet-line-list,
+.worksheet-option-sentences,
+.worksheet-true-false-list,
+.worksheet-positive-negative,
+.worksheet-order-list,
+.worksheet-match-list,
+.worksheet-guided-lines {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.worksheet-line-list.is-two-column {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.worksheet-sentence-builder,
+.worksheet-choice-line,
+.worksheet-inline-choice,
+.worksheet-order-list label,
+.worksheet-match-list label,
+.worksheet-structure-row,
+.worksheet-guided-lines label {
+  min-width: 0;
+  border: 1px solid rgba(201, 234, 255, 0.32);
+  border-radius: 8px;
+  padding: 12px;
+  color: #ffffff;
+  background: rgba(4, 16, 42, 0.3);
+  font: 900 0.88rem/1.35 var(--body);
+}
+
+.worksheet-sentence-builder,
+.worksheet-guided-lines label {
+  display: grid;
+  gap: 10px;
+}
+
+.worksheet-sentence-builder input,
+.worksheet-order-list select,
+.worksheet-match-list select,
+.worksheet-structure-row select,
+.worksheet-gap-grid input {
+  min-height: 36px;
+  border: 1px solid rgba(201, 234, 255, 0.62);
+  border-radius: 6px;
+  color: #ffffff;
+  background: rgba(21, 54, 100, 0.34);
+  font: 900 0.86rem/1.1 var(--body);
+}
+
+.worksheet-sentence-builder input,
+.worksheet-gap-grid input {
+  padding: 0 10px;
+}
+
+.worksheet-order-list label,
+.worksheet-match-list label,
+.worksheet-structure-row,
+.worksheet-inline-choice {
+  display: grid;
+  grid-template-columns: minmax(86px, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.worksheet-inline-choice {
+  grid-template-columns: auto minmax(0, auto) minmax(0, 1fr);
+}
+
+.worksheet-inline-choice .figma-option-row {
+  margin-top: 0;
+}
+
+.worksheet-choice-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.worksheet-choice-line p,
+.worksheet-inline-choice span,
+.worksheet-paragraph-text p,
+.worksheet-paragraph-text {
+  margin: 0;
+  color: #ffffff;
+  font: 900 0.92rem/1.45 var(--body);
+}
+
+.worksheet-positive-negative .true-false-actions button {
+  min-width: 44px;
+  border-radius: 50%;
+}
+
+.worksheet-selection-count {
+  margin: 14px 0 0;
+  color: rgba(141, 255, 202, 0.92);
+  font: 900 0.78rem/1.2 var(--body);
+}
+
+.worksheet-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin-top: 18px;
+}
+
+.worksheet-checkbox-grid button {
+  position: relative;
+  min-height: 38px;
+  border: 1px solid rgba(232, 249, 255, 0.52);
+  border-radius: 6px;
+  padding: 8px 12px 8px 44px;
+  color: #ffffff;
+  background: rgba(4, 16, 42, 0.28);
+  font: 900 0.84rem/1.2 var(--body);
+  text-align: left;
+  cursor: pointer;
+}
+
+.worksheet-checkbox-grid button::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(232, 249, 255, 0.72);
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+
+.worksheet-checkbox-grid button.is-selected {
+  color: #071d41;
+  background: #83f7ff;
+}
+
+.worksheet-checkbox-grid button.is-selected::before {
+  border-color: #071d41;
+  background: #071d41;
+  box-shadow: inset 0 0 0 5px #83f7ff;
+}
+
+.worksheet-group-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.worksheet-group-box {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(232, 249, 255, 0.42);
+  border-radius: 8px;
+  background: rgba(4, 16, 42, 0.34);
+}
+
+.worksheet-group-box span {
+  padding: 10px 14px;
+  color: #09244a;
+  background: rgba(255, 255, 255, 0.94);
+  font: 900 1rem/1 var(--display);
+}
+
+.worksheet-group-box textarea,
+.worksheet-guided-lines textarea,
+.worksheet-template-task textarea,
+.worksheet-writing-layout textarea {
+  width: 100%;
+  min-height: 116px;
+  resize: vertical;
+  border: 0;
+  color: #ffffff;
+  background: rgba(4, 16, 42, 0.42);
+  font: 800 0.9rem/1.5 var(--body);
+}
+
+.worksheet-group-box textarea,
+.worksheet-template-task textarea {
+  padding: 14px;
+}
+
+.worksheet-paragraph-text {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.worksheet-gap-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.worksheet-gap-grid label {
+  display: grid;
+  gap: 6px;
+  width: 96px;
+  color: rgba(255, 255, 255, 0.78);
+  font: 900 0.72rem/1 var(--body);
+}
+
+.worksheet-structure-row {
+  grid-template-columns: minmax(130px, 0.38fr) repeat(2, minmax(0, 1fr));
+}
+
+.worksheet-template-card {
+  display: grid;
+  gap: 4px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(232, 249, 255, 0.38);
+  border-radius: 8px;
+  background: rgba(4, 16, 42, 0.32);
+}
+
+.worksheet-template-card p {
+  margin: 0;
+  color: #ffffff;
+  font: italic 900 0.96rem/1.45 var(--body);
+}
+
+.worksheet-template-task ul,
+.worksheet-writing-layout ul {
+  margin: 14px 0 0;
+  padding-left: 22px;
+  color: #83f7ff;
+  font: 900 0.9rem/1.45 var(--body);
+}
+
+.worksheet-template-task textarea {
+  margin-top: 16px;
+  border: 1px solid rgba(201, 234, 255, 0.44);
+  border-radius: 8px;
+}
+
+.worksheet-instruction-block {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid rgba(201, 234, 255, 0.32);
+  border-radius: 8px;
+  background: rgba(4, 16, 42, 0.3);
+}
+
+.worksheet-writing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(260px, 1fr);
+  gap: clamp(18px, 4vw, 56px);
+  align-items: start;
+  margin-top: 20px;
+}
+
+.worksheet-writing-layout > textarea {
+  min-height: 260px;
+  border: 1px solid rgba(201, 234, 255, 0.44);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.worksheet-writing-layout p {
+  margin: 0;
+  color: #ffffff;
+  font: 900 0.92rem/1.45 var(--body);
+}
+
+.worksheet-guided-lines small {
+  color: rgba(255, 255, 255, 0.68);
+  font: italic 800 0.72rem/1.35 var(--body);
+}
+
+.worksheet-guided-lines textarea {
+  min-height: 94px;
+  border: 1px solid rgba(201, 234, 255, 0.44);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.speaking-study-grid {
+  grid-template-columns: minmax(260px, 0.52fr) minmax(0, 1fr);
+}
+
+.speaking-tips-panel {
+  overflow: hidden;
+  border: 1px solid rgba(201, 234, 255, 0.42);
+  border-radius: 10px;
+  background: rgba(7, 28, 57, 0.68);
+}
+
+.speaking-tips-panel h2 {
+  margin: 0;
+  padding: 18px;
+  color: #ffffff;
+  font: 900 clamp(1.3rem, 3vw, 2rem)/1 var(--display);
+}
+
+.speaking-tips-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(232, 249, 255, 0.42);
+}
+
+.speaking-tips-columns div {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.speaking-tips-columns div:first-child {
+  background: linear-gradient(180deg, rgba(72, 188, 118, 0.78), rgba(22, 96, 55, 0.78));
+}
+
+.speaking-tips-columns div:last-child {
+  background: linear-gradient(180deg, rgba(184, 82, 108, 0.82), rgba(118, 24, 48, 0.78));
+}
+
+.speaking-tips-columns p {
+  margin: 0;
+  color: #ffffff;
+  font: 900 0.92rem/1.35 var(--body);
+}
+
+.speaking-video-panel video {
+  width: 100%;
+  aspect-ratio: 1.55;
+  display: block;
+  object-fit: cover;
+  background: rgba(4, 9, 28, 0.7);
+}
+
+.speaking-submit-grid {
+  width: min(920px, 94%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 24px auto 0;
+}
+
+.speaking-record-card,
+.speaking-upload-card {
+  width: 100%;
+  margin: 0;
+}
+
+.speaking-record-card p,
+.speaking-upload-card p {
+  margin-top: 16px;
+  color: #ffffff;
+  font: 900 1rem/1.45 var(--body);
+}
+
+.microphone-orb {
+  width: min(210px, 58vw);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  margin: 34px auto 16px;
+  border: 1px solid rgba(232, 249, 255, 0.72);
+  border-radius: 50%;
+  color: rgba(141, 255, 202, 0.82);
+  background: rgba(4, 16, 42, 0.5);
+}
+
+.speaking-record-card > span {
+  display: block;
+  color: rgba(255, 255, 255, 0.72);
+  font: italic 900 0.82rem/1.2 var(--body);
+  text-align: center;
+}
+
+.speaking-file-drop {
+  margin-top: 22px;
+  border-radius: 999px;
+  background: rgba(111, 137, 196, 0.72);
+}
+
+.speaking-upload-card .worksheet-essay-box textarea {
+  min-height: 110px;
+}
+
+.listening-object-panel > img {
+  aspect-ratio: 1.82;
+}
+
+.listening-check-panel {
+  margin-top: 18px;
+}
+
+.listening-true-false-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.listening-true-false-card {
+  min-height: 168px;
+  padding: 16px;
+}
+
+.listening-true-false-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 1rem/1.35 var(--display);
+}
+
+.true-false-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.true-false-actions button {
+  min-width: 96px;
+  min-height: 32px;
+  border: 1px solid rgba(235, 247, 255, 0.52);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(95, 135, 186, 0.42);
+  font: 900 0.74rem/1 var(--body);
+  cursor: pointer;
+}
+
+.true-false-actions button.is-selected {
+  color: #061220;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--cyan), var(--mint));
+}
+
+.listening-choice-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.listening-challenge-panel {
+  width: min(920px, 94%);
+  display: grid;
+  gap: 18px;
+  margin: 18px auto 0;
+  padding: 22px;
+}
+
+.listening-challenge-panel p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font: 900 0.88rem/1.45 var(--body);
+}
+
+.listening-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.listening-challenge-grid button {
+  min-height: 112px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid rgba(201, 234, 255, 0.28);
+  border-radius: 10px;
+  padding: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(95, 135, 186, 0.28);
+  font: 900 0.82rem/1.45 var(--body);
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.listening-challenge-grid button:hover,
+.listening-challenge-grid button:focus-visible {
+  border-color: rgba(141, 255, 202, 0.62);
+  transform: translateY(-1px);
+}
+
+.listening-challenge-grid button.is-done {
+  color: #061220;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--cyan), var(--mint));
+}
+
+.listening-challenge-grid button.is-done svg {
+  color: #061220;
+}
+
+.listening-challenge-grid svg {
+  flex: 0 0 auto;
+  color: var(--mint);
+}
+
+.listening-notes-box {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font: 900 0.82rem/1.2 var(--body);
+}
+
+.listening-submit-panel {
+  margin-top: 0;
+}
+
+.listening-notes-box textarea {
+  width: 100%;
+  min-height: 128px;
+  resize: vertical;
+  border: 1px solid rgba(201, 234, 255, 0.44);
+  border-radius: 8px;
+  padding: 12px;
+  color: #ffffff;
+  background: rgba(4, 9, 28, 0.48);
+  font: 800 0.9rem/1.5 var(--body);
+}
+
+.lesson-page.figma-listening-page,
+.figma-listening-page {
+  --figma-blue: rgba(7, 40, 83, 0.72);
+  --figma-blue-deep: rgba(3, 19, 45, 0.92);
+  --figma-line: rgba(132, 215, 255, 0.58);
+  --figma-soft-line: rgba(222, 246, 255, 0.28);
+  width: min(1000px, calc(100% - 24px));
+}
+
+.figma-listening-page .lesson-page-nav {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.figma-listening-hero,
+.figma-section-panel,
+.figma-audio-card,
+.figma-comprehension-panel {
+  width: min(920px, 94%);
+  margin-inline: auto;
+  border: 1px solid var(--figma-line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(141, 255, 202, 0.14), transparent 26%),
+    radial-gradient(circle at 16% 0%, rgba(111, 231, 255, 0.18), transparent 32%),
+    linear-gradient(180deg, rgba(14, 68, 123, 0.64), rgba(7, 28, 57, 0.84));
+  background-size: cover;
+  background-position: center;
+  box-shadow:
+    inset 0 0 30px rgba(150, 226, 255, 0.2),
+    0 16px 38px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(10px) saturate(1.14);
+}
+
+.figma-listening-hero {
+  min-height: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
+  gap: 22px;
+  align-items: center;
+  margin-top: 52px;
+  padding: clamp(20px, 4vw, 34px);
+  border-radius: 8px;
+}
+
+.figma-listening-hero .ghost-link {
+  min-height: 30px;
+  margin: 0 0 12px;
+  padding-inline: 12px;
+  border-radius: 5px;
+  border-color: rgba(220, 244, 255, 0.48);
+  font-size: 0.7rem;
+  background: rgba(201, 224, 242, 0.18);
+  box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.08);
+}
+
+.figma-listening-hero-copy > span,
+.figma-audio-card-body > span {
+  display: block;
+  color: rgba(255, 255, 255, 0.86);
+  font: 900 1rem/1.2 var(--body);
+  text-transform: uppercase;
+}
+
+.figma-listening-hero h1 {
+  max-width: 660px;
+  margin: 8px 0 0;
+  color: #ffffff;
+  font: 900 clamp(2rem, 4.8vw, 4rem)/0.98 var(--display);
+  letter-spacing: 0;
+  text-shadow:
+    0 4px 0 rgba(24, 63, 105, 0.62),
+    0 0 18px rgba(111, 231, 255, 0.18);
+}
+
+.figma-listening-hero p {
+  max-width: 580px;
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font: 900 0.86rem/1.45 var(--body);
+}
+
+.figma-listening-hero-image {
+  width: 100%;
+  aspect-ratio: 1.42;
+  border: 1px solid rgba(232, 249, 255, 0.72);
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.34);
+}
+
+.figma-listening-study-row {
+  width: min(920px, 94%);
+  display: grid;
+  grid-template-columns: minmax(240px, 0.42fr) minmax(0, 0.58fr);
+  gap: 16px;
+  margin: 18px auto 0;
+}
+
+.figma-section-panel {
+  width: 100%;
+  min-height: 360px;
+  padding: 18px;
+}
+
+.figma-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #83f7ff;
+}
+
+.figma-panel-title h2 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 2rem/1 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+}
+
+.figma-section-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.figma-section-list button {
+  min-height: 58px;
+  border: 1px solid rgba(228, 247, 255, 0.42);
+  border-radius: 6px;
+  padding: 0 18px;
+  color: #ffffff;
+  background: rgba(95, 135, 186, 0.28);
+  font: 900 1rem/1.1 var(--body);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.figma-section-list button.is-active {
+  color: #062048;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--cyan), var(--mint));
+}
+
+.figma-audio-card {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  background: var(--figma-blue-deep);
+}
+
+.figma-audio-card > img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: block;
+  object-fit: cover;
+}
+
+.figma-audio-card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  background:
+    linear-gradient(180deg, rgba(5, 24, 53, 0.08), rgba(3, 19, 45, 0.92)),
+    rgba(13, 51, 91, 0.76);
+  backdrop-filter: blur(5px);
+}
+
+.figma-audio-card-body h2 {
+  margin: 5px 0 8px;
+  color: #ffffff;
+  font: 900 clamp(1.25rem, 2.5vw, 2rem)/1.08 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+}
+
+.figma-audio-card audio {
+  width: min(100%, 520px);
+  height: 34px;
+  display: block;
+}
+
+.figma-audio-actions,
+.figma-check-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.figma-audio-actions a,
+.figma-check-actions button,
+.figma-submit-row button {
+  min-height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(235, 247, 255, 0.62);
+  border-radius: 999px;
+  padding: 0 12px;
+  color: #ffffff;
+  background: rgba(20, 53, 94, 0.5);
+  font: 900 0.62rem/1 var(--body);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.figma-comprehension-panel {
+  margin-top: 18px;
+  padding: 22px;
+}
+
+.figma-comprehension-panel h2 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 clamp(1.45rem, 3vw, 2.05rem)/1 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+}
+
+.figma-comprehension-panel > p {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font: 900 0.7rem/1.3 var(--body);
+}
+
+.figma-check-tabs {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 6px 28px;
+  border: 1px solid rgba(223, 245, 255, 0.54);
+  border-radius: 6px;
+  background: rgba(201, 224, 242, 0.22);
+  box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.12);
+}
+
+.figma-check-tabs.is-wide {
+  width: min(100%, 640px);
+}
+
+.figma-check-tabs span {
+  min-width: 116px;
+  min-height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.16);
+  font: 900 0.75rem/1 var(--body);
+}
+
+.figma-true-false-sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5px minmax(0, 1fr);
+  gap: clamp(18px, 3.2vw, 56px);
+  align-items: stretch;
+  margin-top: clamp(18px, 2.8vw, 38px);
+}
+
+.figma-true-false-column {
+  display: grid;
+  align-content: start;
+  gap: clamp(14px, 2vw, 28px);
+}
+
+.figma-worksheet-divider {
+  width: 5px;
+  min-height: 100%;
+  align-self: stretch;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 0 12px rgba(130, 227, 255, 0.42);
+}
+
+.figma-true-false-line h3 {
+  max-width: 52ch;
+  margin: 0;
+  color: #ffffff;
+  font: 900 1.18rem/1.32 var(--body);
+}
+
+.figma-true-false-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 2vw, 30px);
+  margin-top: clamp(6px, 0.9vw, 12px);
+}
+
+.figma-true-false-options button {
+  min-height: clamp(22px, 2vw, 34px);
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(5px, 0.7vw, 10px);
+  border: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.94);
+  background: transparent;
+  font: 900 1.02rem/1 var(--body);
+  cursor: pointer;
+}
+
+.figma-true-false-options button::before {
+  content: "";
+  width: clamp(14px, 1.55vw, 24px);
+  height: clamp(14px, 1.55vw, 24px);
+  flex: 0 0 auto;
+  border: 2px solid rgba(232, 249, 255, 0.76);
+  border-radius: 999px;
+  background: rgba(29, 72, 122, 0.36);
+  box-shadow: inset 0 0 0 3px rgba(10, 35, 76, 0.72);
+}
+
+.figma-true-false-options button.is-selected::before {
+  border-color: #83f7ff;
+  background: #83f7ff;
+}
+
+.figma-true-false-line strong {
+  display: inline-block;
+  margin-top: 8px;
+  color: #83f7ff;
+  font: 900 0.78rem/1.2 var(--body);
+}
+
+.figma-check-tabs span.is-active {
+  color: #09244a;
+  background: #ffffff;
+}
+
+.figma-answer-grid {
+  display: grid;
+  gap: clamp(12px, 1.8vw, 24px);
+  margin-top: clamp(14px, 2vw, 34px);
+}
+
+.figma-answer-grid.is-two-column {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.figma-answer-grid.is-three-column {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.figma-answer-card {
+  min-height: clamp(132px, 19vw, 280px);
+  padding: clamp(12px, 1.9vw, 28px);
+  border: 1px solid var(--figma-soft-line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(82, 136, 169, 0.34), rgba(7, 28, 57, 0.72));
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 18px rgba(164, 226, 255, 0.16);
+}
+
+.figma-answer-card h3 {
+  min-height: clamp(34px, 4vw, 68px);
+  margin: 0;
+  color: #ffffff;
+  font: 900 0.92rem/1.28 var(--body);
+}
+
+.figma-answer-card strong {
+  display: block;
+  margin-top: 8px;
+  color: #83f7ff;
+  font: 900 0.62rem/1.2 var(--body);
+}
+
+.figma-option-row,
+.figma-option-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.figma-option-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(8px, 1.2vw, 16px);
+}
+
+.figma-option-row button,
+.figma-option-list button {
+  min-height: clamp(26px, 3.2vw, 48px);
+  border: 1px solid rgba(232, 249, 255, 0.58);
+  border-radius: 999px;
+  padding: 0 clamp(9px, 1.2vw, 16px);
+  color: #ffffff;
+  background: rgba(42, 86, 136, 0.52);
+  font: 900 0.9rem/1.1 var(--body);
+  cursor: pointer;
+}
+
+.figma-option-list button {
+  position: relative;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 5px;
+  padding: clamp(5px, 0.8vw, 10px) clamp(8px, 1vw, 14px) clamp(5px, 0.8vw, 10px) clamp(34px, 3.4vw, 52px);
+  text-align: left;
+}
+
+.figma-option-list button::before {
+  content: "";
+  position: absolute;
+  left: clamp(9px, 1vw, 15px);
+  top: 50%;
+  width: clamp(14px, 1.55vw, 24px);
+  height: clamp(14px, 1.55vw, 24px);
+  border: 2px solid rgba(232, 249, 255, 0.7);
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+
+.figma-option-row button.is-selected,
+.figma-option-list button.is-selected {
+  color: #071d41;
+  border-color: transparent;
+  background: #83f7ff;
+}
+
+.figma-option-list button.is-selected::before {
+  border-color: #071d41;
+  background: #071d41;
+  box-shadow: inset 0 0 0 5px #83f7ff;
+}
+
+.figma-check-actions.is-worksheet-actions {
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(10px, 1.4vw, 18px);
+}
+
+.figma-check-actions.is-worksheet-actions button {
+  min-height: clamp(20px, 2vw, 28px);
+  border-radius: 5px;
+  padding-inline: clamp(8px, 1vw, 14px);
+  color: #09244a;
+  background: #ffffff;
+}
+
+.figma-check-actions.is-worksheet-actions span {
+  color: rgba(255, 255, 255, 0.82);
+  font: 900 0.72rem/1.2 var(--body);
+}
+
+.figma-reading-page {
+  padding-bottom: 72px;
+}
+
+.figma-reading-hero {
+  min-height: clamp(210px, 25vw, 330px);
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.24fr);
+  margin-top: clamp(30px, 4.4vw, 58px);
+}
+
+.figma-reading-hero .figma-listening-hero-image {
+  max-width: 264px;
+  justify-self: center;
+}
+
+.figma-reading-study-row {
+  grid-template-columns: minmax(280px, 0.48fr) minmax(0, 0.47fr);
+}
+
+.figma-reading-text-panel,
+.figma-reading-object-card {
+  min-height: clamp(260px, 36vw, 580px);
+}
+
+.figma-reading-text-panel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 2.4vw, 34px);
+}
+
+.figma-reading-text-panel h2 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 2.12rem/1 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+}
+
+.figma-reading-text-body {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: clamp(18px, 2.8vw, 46px) clamp(6px, 2vw, 34px) 0;
+}
+
+.figma-reading-text-body p {
+  max-width: 32ch;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.95);
+  font: 900 clamp(1rem, 1.55vw, 1.55rem)/1.32 var(--body);
+  text-align: center;
+}
+
+.figma-reading-text-body p:nth-child(n + 3) {
+  margin-top: 8px;
+}
+
+.figma-reading-text-body.is-menu-text {
+  align-content: start;
+  padding-top: clamp(24px, 4vw, 58px);
+}
+
+.figma-reading-text-body.is-menu-text p {
+  width: min(100%, 32ch);
+  margin-inline: auto;
+  text-align: left;
+  font-size: clamp(0.9rem, 1.28vw, 1.18rem);
+  line-height: 1.25;
+}
+
+.figma-reading-text-body.is-menu-text p:nth-child(n + 3)::before {
+  content: "• ";
+}
+
+.figma-reading-object-card .figma-audio-card-body {
+  min-height: clamp(92px, 10vw, 150px);
+}
+
+.figma-reading-comprehension-panel {
+  margin-top: clamp(18px, 2.8vw, 52px);
+}
+
+.figma-answer-card strong.quiz-result:not(.is-correct) {
+  color: #ffd37a;
+}
+
+.figma-reading-gap-list {
+  display: grid;
+  gap: clamp(12px, 1.6vw, 24px);
+  margin-top: clamp(18px, 2.4vw, 34px);
+}
+
+.figma-reading-gap-list label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font: 900 clamp(0.95rem, 1.55vw, 1.34rem)/1.35 var(--body);
+}
+
+.figma-reading-gap-list input,
+.figma-reading-submit-panel input {
+  width: clamp(74px, 9vw, 116px);
+  min-height: clamp(24px, 2.4vw, 34px);
+  border: 1px solid rgba(220, 244, 255, 0.68);
+  border-radius: 2px;
+  padding: 3px 8px;
+  color: #ffffff;
+  background: rgba(7, 37, 82, 0.42);
+  font: 900 0.9rem/1.1 var(--body);
+  box-shadow: inset 0 0 10px rgba(107, 197, 255, 0.12);
+}
+
+.figma-reading-submit-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(18px, 2vw, 30px);
+}
+
+.figma-reading-submit-panel label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font: 900 0.72rem/1.2 var(--body);
+}
+
+.figma-reading-submit-panel input {
+  width: 150px;
+}
+
+.figma-reading-submit-panel > span,
+.figma-reading-submit-panel .submission-message {
+  color: rgba(255, 255, 255, 0.82);
+  font: 900 0.72rem/1.2 var(--body);
+}
+
+.figma-reading-submit-panel .submission-message {
+  width: 100%;
+  margin: 0;
+  color: #83f7ff;
+}
+
+.figma-reading-submit-panel .submission-message.is-error {
+  color: #ffd37a;
+}
+
+.figma-reading-submit-panel button {
+  min-height: clamp(20px, 2vw, 28px);
+  border: 1px solid rgba(235, 247, 255, 0.62);
+  border-radius: 5px;
+  padding-inline: clamp(8px, 1vw, 14px);
+  color: #09244a;
+  background: #ffffff;
+  font: 900 0.62rem/1 var(--body);
+  cursor: pointer;
+}
+
+.figma-reading-submit-panel button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.figma-final-check {
+  margin-top: 132px;
+}
+
+@media (max-width: 960px) {
+  .figma-listening-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .figma-listening-hero-copy > span,
+  .figma-audio-card-body > span {
+    font-size: 0.78rem;
+  }
+
+  .figma-listening-hero p {
+    font-size: 0.86rem;
+  }
+
+  .figma-panel-title h2,
+  .figma-comprehension-panel h2 {
+    font-size: 1.55rem;
+  }
+
+  .figma-section-list button {
+    font-size: 0.8rem;
+  }
+
+  .figma-audio-card-body h2 {
+    font-size: 1.2rem;
+  }
+
+  .figma-true-false-line h3 {
+    font-size: 0.82rem;
+  }
+
+  .figma-true-false-options button,
+  .figma-option-list button,
+  .figma-option-row button {
+    font-size: 0.68rem;
+  }
+
+  .figma-answer-card h3 {
+    font-size: 0.7rem;
+  }
+}
+
+.figma-submit-row,
+.figma-notes-field {
+  margin-top: 14px;
+}
+
+.figma-submit-row label,
+.figma-notes-field {
+  display: grid;
+  gap: 7px;
+  max-width: 360px;
+  color: rgba(255, 255, 255, 0.82);
+  font: 900 0.68rem/1.2 var(--body);
+}
+
+.figma-submit-row input,
+.figma-notes-field textarea {
+  width: 100%;
+  border: 1px solid rgba(232, 249, 255, 0.46);
+  border-radius: 5px;
+  color: #ffffff;
+  background: rgba(4, 16, 42, 0.54);
+  font: 800 0.76rem/1.35 var(--body);
+}
+
+.figma-submit-row input {
+  height: 32px;
+  padding: 0 10px;
+}
+
+.figma-notes-field textarea {
+  min-height: 86px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.quick-information-section {
+  width: min(920px, 94%);
+  margin: 26px auto 0;
+}
+
+.quick-information-section h2 {
+  margin: 0 0 20px;
+  text-align: center;
+  color: #ffffff;
+  font: 900 clamp(2rem, 4vw, 3.1rem)/1 var(--display);
+  text-shadow:
+    0 4px 0 #235b9e,
+    0 0 14px rgba(114, 224, 255, 0.88);
+}
+
+.quick-information-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 260px));
+  justify-content: center;
+  gap: 22px;
+}
+
+.quick-information-card {
+  min-height: 286px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(201, 234, 255, 0.42);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(82, 136, 169, 0.48), rgba(7, 28, 57, 0.78));
+  box-shadow:
+    inset 0 0 18px rgba(164, 226, 255, 0.22),
+    0 12px 30px rgba(0, 0, 0, 0.38);
+}
+
+.quick-information-preview {
+  position: relative;
+  margin: 12px 12px 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: 8px 8px 0 0;
+}
+
+.quick-information-preview img {
+  width: 100%;
+  aspect-ratio: 1.58;
+  display: block;
+  object-fit: cover;
+}
+
+.quick-information-preview svg,
+.quick-information-preview span {
+  position: absolute;
+  z-index: 2;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.48));
+}
+
+.quick-information-preview svg {
+  top: 12px;
+  left: 12px;
+}
+
+.quick-information-preview span {
+  top: 12px;
+  right: 12px;
+  font: 900 1.32rem/1 var(--display);
+}
+
+.quick-information-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 12px 14px 16px;
+}
+
+.quick-information-body p {
+  margin: 0;
+  color: #ffffff;
+  font: 900 clamp(1rem, 1.8vw, 1.28rem)/1 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.82);
+}
+
+.quick-information-body h3 {
+  margin: 14px 0 18px;
+  color: #83f7ff;
+  font: 900 clamp(1rem, 1.8vw, 1.32rem)/1.15 var(--display);
+  text-shadow: 0 0 10px rgba(111, 231, 255, 0.34);
+}
+
+.quick-information-body button {
+  width: max-content;
+  min-height: 30px;
+  margin-top: auto;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.34);
+  font: 900 0.72rem/1 var(--body);
+  cursor: pointer;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.18);
 }
 
 .lesson-material-library {
@@ -1942,6 +4229,112 @@
     inset 0 0 34px rgba(150, 226, 255, 0.22),
     0 18px 46px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(8px);
+}
+
+.grammar-worksheet-library {
+  width: min(920px, 94%);
+  margin: 18px auto 0;
+  padding: 18px;
+  border: 1px solid rgba(186, 233, 255, 0.38);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 142, 199, 0.18), transparent 28%),
+    radial-gradient(circle at 18% 82%, rgba(111, 231, 255, 0.18), transparent 30%),
+    rgba(17, 64, 99, 0.34);
+  box-shadow:
+    inset 0 0 34px rgba(150, 226, 255, 0.2),
+    0 18px 46px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(8px);
+}
+
+.grammar-worksheet-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.grammar-worksheet-heading h2 {
+  margin: 4px 0 0;
+  color: #ffffff;
+  font: 900 clamp(1.35rem, 2.8vw, 2rem)/1 var(--display);
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+}
+
+.grammar-worksheet-heading p {
+  margin: 0;
+  color: #83f7ff;
+  font: 900 0.78rem/1.2 var(--body);
+  text-transform: uppercase;
+}
+
+.grammar-worksheet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.grammar-worksheet-card {
+  min-height: 250px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 112px minmax(0, 1fr);
+  border: 1px solid rgba(201, 234, 255, 0.42);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(82, 136, 169, 0.48), rgba(7, 28, 57, 0.78));
+  box-shadow:
+    inset 0 0 18px rgba(164, 226, 255, 0.2),
+    0 12px 30px rgba(0, 0, 0, 0.34);
+}
+
+.grammar-worksheet-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grammar-worksheet-card div {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+}
+
+.grammar-worksheet-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font: 900 1.02rem/1.16 var(--display);
+  overflow-wrap: anywhere;
+  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.72);
+}
+
+.grammar-worksheet-card p {
+  margin: 8px 0 12px;
+  color: rgba(255, 255, 255, 0.82);
+  font: 800 0.74rem/1.42 var(--body);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grammar-worksheet-card button {
+  width: max-content;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: auto;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: #061220;
+  background: linear-gradient(135deg, var(--cyan), var(--mint));
+  font: 900 0.72rem/1 var(--body);
+  cursor: pointer;
 }
 
 .lesson-material-card,
@@ -2070,10 +4463,24 @@
   border: 1px solid rgba(201, 234, 255, 0.42);
   border-radius: 14px;
   background:
-    linear-gradient(180deg, rgba(82, 136, 169, 0.48), rgba(7, 28, 57, 0.78));
+    var(--lesson-card-background, linear-gradient(180deg, rgba(82, 136, 169, 0.48), rgba(7, 28, 57, 0.78)));
+  background-size: cover;
+  background-position: center;
   box-shadow:
     inset 0 0 18px rgba(164, 226, 255, 0.22),
     0 12px 30px rgba(0, 0, 0, 0.38);
+}
+
+.category-grammar {
+  --lesson-card-background:
+    linear-gradient(180deg, rgba(7, 28, 57, 0.16), rgba(7, 28, 57, 0.54)),
+    url('/Background Card Grammar.png');
+}
+
+.category-listening {
+  --lesson-card-background:
+    linear-gradient(180deg, rgba(7, 28, 57, 0.14), rgba(7, 28, 57, 0.56)),
+    url('/Background Card Listening.png');
 }
 
 .lesson-card-media {
@@ -2121,6 +4528,32 @@
   font: 800 clamp(0.68rem, 1.12vw, 0.82rem)/1.45 var(--body);
 }
 
+.lesson-card-meta,
+.lesson-card-folder {
+  display: block;
+  color: rgba(255, 255, 255, 0.82);
+  font: 800 0.68rem/1.35 var(--body);
+}
+
+.lesson-card-meta {
+  min-height: 2.7em;
+  margin: -4px 0 10px;
+}
+
+.lesson-card-folder {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 10px;
+  padding: 5px 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: #83f7ff;
+  background: rgba(5, 20, 42, 0.42);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .lesson-card button {
   width: max-content;
   min-height: 28px;
@@ -2137,68 +4570,6 @@
 .lesson-card button:hover {
   color: #061220;
   background: linear-gradient(135deg, var(--cyan), var(--mint));
-}
-
-.teacher-intro {
-  width: min(920px, 94%);
-  display: grid;
-  grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 34px;
-  margin: 34px auto 0;
-  padding: 22px;
-  border: 1px solid rgba(186, 233, 255, 0.38);
-  border-radius: 12px;
-  background:
-    radial-gradient(circle at 16% 35%, rgba(255, 255, 255, 0.16), transparent 20%),
-    rgba(17, 64, 99, 0.34);
-  box-shadow:
-    inset 0 0 34px rgba(150, 226, 255, 0.2),
-    0 18px 46px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-}
-
-.teacher-profile {
-  text-align: center;
-}
-
-.teacher-profile img {
-  width: 178px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.44);
-  object-fit: cover;
-}
-
-.teacher-profile h2 {
-  margin: 18px 0 0;
-  color: #ffffff;
-  font: 900 1.18rem/1.18 var(--display);
-  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.64);
-}
-
-.teacher-profile p {
-  margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.76);
-  font: 700 0.78rem/1.3 var(--body);
-}
-
-.teacher-message h2 {
-  margin: 0;
-  color: #ffffff;
-  font: 900 1.75rem/1.1 var(--display);
-  text-shadow: 0 3px 0 rgba(17, 51, 83, 0.64);
-}
-
-.teacher-message h2 span {
-  color: #83f7ff;
-}
-
-.teacher-message p {
-  max-width: 430px;
-  margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.78);
-  font: 700 0.82rem/1.65 var(--body);
 }
 
 @media (max-width: 980px) {
@@ -2239,6 +4610,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .review-workspace {
+    grid-template-columns: 1fr;
+  }
+
   .hero-section,
   .practice-board,
   .materials-hero,
@@ -2268,8 +4643,15 @@
 
   .lesson-card-grid,
   .lesson-test-grid,
-  .lesson-material-library {
+  .lesson-material-library,
+  .grammar-worksheet-library {
     width: min(620px, 94%);
+  }
+
+  .lesson-card-grid,
+  .lesson-test-grid,
+  .lesson-material-library,
+  .grammar-worksheet-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
@@ -2287,18 +4669,17 @@
   .reading-detail-hero,
   .mission-workbench,
   .mission-panel-grid,
-  .reading-study-grid {
+  .reading-study-grid,
+  .listening-worksheet-grid,
+  .vocabulary-worksheet-grid,
+  .writing-worksheet-grid,
+  .listening-choice-list,
+  .listening-challenge-grid {
     grid-template-columns: 1fr;
   }
 
   .route-board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .teacher-intro {
-    width: min(620px, 94%);
-    grid-template-columns: 190px minmax(0, 1fr);
-    gap: 32px;
   }
 
   .hero-copy h1 {
@@ -2311,6 +4692,175 @@
 }
 
 @media (max-width: 720px) {
+  .lesson-page.figma-listening-page,
+  .figma-listening-page {
+    width: min(760px, calc(100% - 18px));
+  }
+
+  .figma-listening-hero,
+  .figma-comprehension-panel,
+  .figma-listening-study-row {
+    width: calc(100% - 22px);
+  }
+
+  .figma-listening-hero {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(88px, 0.36fr);
+    gap: 12px;
+    margin-top: 30px;
+    padding: 14px;
+  }
+
+  .figma-listening-hero .ghost-link {
+    min-height: 24px;
+    margin-bottom: 8px;
+    padding-inline: 8px;
+    font-size: 0.58rem;
+  }
+
+  .figma-listening-hero-copy > span,
+  .figma-audio-card-body > span {
+    font-size: 0.56rem;
+  }
+
+  .figma-listening-hero h1 {
+    max-width: 100%;
+    font-size: 1.44rem;
+  }
+
+  .figma-listening-hero p {
+    margin-top: 8px;
+    font-size: 0.62rem;
+  }
+
+  .figma-listening-study-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .figma-section-panel,
+  .figma-audio-card,
+  .figma-audio-card > img {
+    min-height: auto;
+  }
+
+  .figma-section-panel {
+    padding: 12px;
+  }
+
+  .figma-panel-title h2,
+  .figma-comprehension-panel h2 {
+    font-size: 1.14rem;
+  }
+
+  .figma-section-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 10px;
+  }
+
+  .figma-section-list button {
+    min-height: 30px;
+    padding-inline: 8px;
+    font-size: 0.58rem;
+  }
+
+  .figma-audio-card > img {
+    aspect-ratio: 1.55;
+  }
+
+  .figma-audio-card-body {
+    position: relative;
+    padding: 12px;
+  }
+
+  .figma-audio-card-body h2 {
+    font-size: 1rem;
+  }
+
+  .figma-comprehension-panel {
+    margin-top: 16px;
+    padding: 12px;
+  }
+
+  .figma-check-tabs {
+    min-height: 23px;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 3px 6px;
+  }
+
+  .figma-check-tabs span {
+    min-width: 86px;
+    min-height: 17px;
+    font-size: 0.54rem;
+  }
+
+  .figma-true-false-sheet {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    margin-top: 14px;
+  }
+
+  .figma-true-false-column {
+    gap: 12px;
+  }
+
+  .figma-worksheet-divider {
+    display: none;
+  }
+
+  .figma-true-false-line h3 {
+    max-width: 100%;
+    font-size: 0.68rem;
+  }
+
+  .figma-true-false-options {
+    gap: 16px;
+    margin-top: 6px;
+  }
+
+  .figma-true-false-options button {
+    min-height: 20px;
+    font-size: 0.62rem;
+  }
+
+  .figma-true-false-options button::before,
+  .figma-option-list button::before {
+    width: 14px;
+    height: 14px;
+    border-width: 1px;
+  }
+
+  .figma-answer-grid.is-two-column,
+  .figma-answer-grid.is-three-column {
+    grid-template-columns: 1fr;
+  }
+
+  .figma-answer-card {
+    min-height: 116px;
+    padding: 10px;
+  }
+
+  .figma-answer-card h3 {
+    min-height: auto;
+    font-size: 0.66rem;
+  }
+
+  .figma-option-list button,
+  .figma-option-row button {
+    min-height: 28px;
+    font-size: 0.62rem;
+  }
+
+  .figma-option-list button {
+    padding-left: 32px;
+  }
+
+  .figma-final-check {
+    margin-top: 42px;
+  }
+
   .figma-home {
     width: min(430px, calc(100% - 12px));
     margin-top: 20px;
@@ -2355,9 +4905,14 @@
     font-size: 1.82rem;
   }
 
-  .figma-hero-copy p:not(.figma-eyebrow) {
+  .figma-hero-copy p:not(.figma-eyebrow):not(.figma-hero-brand) {
     font-size: 0.66rem;
     overflow-wrap: anywhere;
+  }
+
+  .figma-hero-brand {
+    margin-top: -8px;
+    font-size: 1.5rem;
   }
 
   .figma-eyebrow {
@@ -2433,6 +4988,84 @@
     min-height: 22px;
     padding-inline: 10px;
     font-size: 0.54rem;
+  }
+
+  .student-review-section {
+    width: calc(100% - 22px);
+    padding: 11px 9px 16px;
+    border-radius: 8px;
+  }
+
+  .review-heading {
+    align-items: flex-start;
+  }
+
+  .review-heading h2 {
+    font-size: 1.1rem;
+  }
+
+  .review-score {
+    min-width: 96px;
+    gap: 3px;
+    font-size: 0.56rem;
+  }
+
+  .review-score strong {
+    font-size: 1.72rem;
+  }
+
+  .rating-stars {
+    gap: 2px;
+  }
+
+  .rating-stars svg,
+  .rating-stars button {
+    width: 19px;
+    height: 19px;
+    flex-basis: 19px;
+  }
+
+  .review-workspace {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .review-form {
+    padding: 12px;
+  }
+
+  .review-form input,
+  .review-form textarea {
+    font-size: 0.74rem;
+  }
+
+  .review-orbit-field {
+    height: 360px;
+    max-height: 360px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .review-orbit-field::before,
+  .review-orbit-field::after {
+    display: none;
+  }
+
+  .review-card {
+    min-height: auto;
+    padding: 12px;
+  }
+
+  .review-card .rating-stars svg {
+    width: 16px;
+    height: 16px;
+    flex-basis: 16px;
+  }
+
+  .review-card p {
+    font-size: 0.68rem;
   }
 
   .topbar,
@@ -2549,19 +5182,44 @@
 
   .lesson-card-grid,
   .lesson-test-grid,
-  .lesson-material-library {
+  .lesson-material-library,
+  .grammar-worksheet-library {
     width: calc(100% - 22px);
+  }
+
+  .lesson-card-grid,
+  .lesson-test-grid,
+  .lesson-material-library,
+  .grammar-worksheet-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
+  }
+
+  .grammar-worksheet-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .grammar-worksheet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grammar-worksheet-library {
     padding: 11px 9px 18px;
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px;
   }
 
   .lab-command-center,
   .mission-hero,
   .reading-detail-hero,
   .reading-study-grid,
+  .listening-worksheet-grid,
+  .vocabulary-worksheet-grid,
+  .writing-worksheet-grid,
   .reading-question-panel,
+  .reading-gap-panel,
+  .listening-challenge-panel,
+  .quick-information-section,
   .route-board,
   .lab-method-strip,
   .mission-workbench {
@@ -2575,6 +5233,10 @@
     padding: 18px;
     grid-template-columns: 1fr;
     border-radius: 8px;
+  }
+
+  .writing-workshop-panel {
+    width: 100%;
   }
 
   .lab-command-center h1,
@@ -2594,8 +5256,19 @@
   }
 
   .reading-study-grid,
-  .reading-question-list {
+  .reading-question-list,
+  .listening-true-false-list,
+  .listening-choice-list,
+  .listening-challenge-grid,
+  .vocabulary-match-list,
+  .vocabulary-sentence-grid,
+  .writing-criteria-grid,
+  .quick-information-grid {
     grid-template-columns: 1fr;
+  }
+
+  .quick-information-section h2 {
+    font-size: 1.8rem;
   }
 
   .reading-object-frame {
@@ -2687,27 +5360,11 @@
     font-size: 0.78rem;
   }
 
-  .lesson-material-actions a {
+  .lesson-material-actions a,
+  .lesson-material-actions button {
     min-height: 26px;
     padding-inline: 9px;
     font-size: 0.58rem;
   }
 
-  .teacher-intro {
-    width: calc(100% - 22px);
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 40px;
-    padding: 16px;
-    border-radius: 8px;
-  }
-
-  .teacher-message {
-    text-align: center;
-  }
-
-  .teacher-message p {
-    max-width: none;
-    margin-top: 14px;
-  }
 }

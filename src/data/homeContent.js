@@ -6,43 +6,43 @@ export const planetTopics = [
   { label: 'Listening', color: '#b7a7ff' },
 ]
 
-export const navigationItems = ['Home', 'Grammar', 'Vocabulary', 'Listening', 'Reading', 'Writing', 'Speaking', 'Exams']
+export const navigationItems = ['Home', 'Grammar', 'Vocabulary', 'Listening', 'Reading', 'Writing', 'Speaking']
 
 export const masteryCards = [
   {
     title: 'Grammar Session',
     category: 'Grammar',
-    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80',
-    description: 'Improve your language skills by exploring grammar and sentence structures.',
+    image: '/mastery-assets/grammar-space.png',
+    description: 'Improve your language skills with grammar sessions grouped into Beginner, Intermediate, and Advance materials. Let\'s grow together.',
   },
   {
     title: 'Vocabulary Session',
     category: 'Vocabulary',
-    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80',
-    description: 'Enrich your vocabulary with common phrases, useful words, and examples.',
+    image: '/mastery-assets/vocabulary-space.png',
+    description: 'Enhance your vocabulary skills. Courses are available at various levels, ranging from A1, A2, B1, B2, C1, and C2. Let\'s grow together.',
   },
   {
     title: 'Listening Space',
     category: 'Listening',
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80',
-    description: 'Practice listening habits with clear audio, questions, and review prompts.',
+    image: '/mastery-assets/listening-space.png',
+    description: 'Enhance your listening skills by studying at Listening Lab. Courses are available at various levels, ranging from A1, A2, B1, B2, C1, and C2. Let\'s grow together.',
   },
   {
     title: 'Reading Space',
     category: 'Reading',
-    image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80',
-    description: 'Improve your reading skills by exploring texts, vocabulary, and ideas.',
+    image: '/mastery-assets/reading-space.png',
+    description: 'Improve your reading skills at the Reading Lab to broaden your knowledge. Available at various levels, ranging from A1, A2, B1, B2, C1, to C2. Let\'s grow together.',
   },
   {
     title: 'Writing Space',
     category: 'Writing',
-    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80',
-    description: 'Develop strong writing skills through paragraph and essay practice.',
+    image: '/mastery-assets/writing-space.png',
+    description: 'Improve your writing skills through the Writing Lab. Courses are available at various levels, ranging from A1, A2, B1, B2, C1, and C2. Let\'s grow together.',
   },
   {
     title: 'Speaking Space',
     category: 'Speaking',
-    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80',
-    description: 'Build confidence through speaking drills, expression, and conversation.',
+    image: '/mastery-assets/speaking-space.png',
+    description: 'Improve your speaking skills and express yourself at the Speaking Lab. Courses are available at various levels, from A1, A2, B1, B2, C1, to C2. Let\'s grow together.',
   },
 ]
